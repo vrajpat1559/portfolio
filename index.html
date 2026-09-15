@@ -57,12 +57,13 @@
   /* ---------- base ---------- */
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 15.5px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  body { margin: 0; background: radial-gradient(1200px 680px at 100% -8%, color-mix(in srgb, var(--accent) 15%, transparent), transparent) no-repeat, radial-gradient(820px 520px at -8% 108%, color-mix(in srgb, var(--accent) 10%, transparent), transparent) no-repeat, var(--bg); color: var(--text); font-family: var(--sans); font-size: 15.5px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
   a { color: inherit; text-decoration: none; }
   h1, h2, h3, h4 { font-family: var(--head); margin: 0; letter-spacing: -.01em; }
   .mono { font-family: var(--mono); font-size: 12.5px; }
   .muted { color: var(--text-2); }
   .dim { color: var(--text-3); }
+  body::before { content: ""; position: fixed; inset: 0 0 auto 0; height: 4px; background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 40%, transparent) 45%, transparent 80%); z-index: 30; }
 
   /* ---------- layout: sidebar + content ---------- */
   .layout { display: grid; grid-template-columns: 300px 1fr; min-height: 100vh; }
@@ -75,10 +76,12 @@
     width: 52px; height: 52px; border-radius: 12px; display: grid; place-items: center;
     background: var(--accent); color: var(--accent-ink);
     font-family: var(--head); font-weight: 700; font-size: 22px;
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 14%, transparent);
   }
-  aside h1 { font-size: 26px; font-weight: 700; line-height: 1.15; margin-top: 14px; }
+  aside h1 { font-size: 28px; font-weight: 700; line-height: 1.15; margin-top: 0; }
+  aside h1::after { content: ""; display: block; width: 44px; height: 4px; border-radius: 3px; margin-top: 12px; background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 30%, transparent)); }
   aside .role { color: var(--text-2); margin-top: 4px; font-size: 14.5px; }
-  .now { display: flex; gap: 8px; align-items: flex-start; padding: 12px; border-radius: 12px; background: var(--accent-soft); font-size: 13px; color: var(--text-2); line-height: 1.45; }
+  .now { display: flex; gap: 8px; align-items: flex-start; padding: 12px 14px; border-radius: 12px; background: var(--accent-soft); border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent); font-size: 13px; color: var(--text-2); line-height: 1.45; }
   .now .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); margin-top: 6px; flex: none; box-shadow: 0 0 0 0 var(--accent); animation: pulse 2s infinite; }
   @keyframes pulse { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 45%, transparent); } 100% { box-shadow: 0 0 0 10px transparent; } }
   .now b { color: var(--text); font-weight: 600; }
@@ -107,16 +110,17 @@
   .btn svg { width: 15px; height: 15px; }
   .btn.icon { padding: 8px; }
 
-  main { padding: 48px 56px 80px; max-width: 1100px; }
+  main { padding: 48px 56px 80px; max-width: 1100px; background-image: radial-gradient(color-mix(in srgb, var(--text) 3%, transparent) 1px, transparent 1.3px); background-size: 22px 22px; }
   section { padding: 0 0 64px; scroll-margin-top: 24px; }
-  .sec-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 22px; }
-  .sec-head .n { font-family: var(--mono); font-size: 12px; color: var(--accent); }
+  .sec-head { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; }
+  .sec-head::after { content: ""; flex: 1; height: 2px; border-radius: 2px; background: linear-gradient(90deg, color-mix(in srgb, var(--accent) 55%, transparent), transparent); }
+  .sec-head .n { font-family: var(--mono); font-size: 12px; font-weight: 600; color: var(--accent-ink); background: var(--accent); padding: 3px 8px; border-radius: 6px; }
   h2 { font-size: 26px; font-weight: 600; }
   .sec-head .sub { color: var(--text-3); font-size: 13.5px; margin-left: auto; }
 
   /* ---------- about ---------- */
   .intro { font-family: var(--head); font-size: clamp(26px, 3.2vw, 40px); font-weight: 600; line-height: 1.2; max-width: 22ch; margin-bottom: 22px; }
-  .intro mark { background: none; color: var(--accent); }
+  .intro mark { background: linear-gradient(120deg, var(--accent), color-mix(in srgb, var(--accent) 45%, #86efac)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }
   .about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px; align-items: start; }
   .about-grid p { margin: 0 0 12px; color: var(--text-2); max-width: 60ch; }
   .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -164,7 +168,8 @@
     background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow);
     padding: 22px; display: flex; flex-direction: column; gap: 12px; transition: .2s; position: relative; scroll-margin-top: 24px;
   }
-  .pcard:hover { border-color: var(--line-strong); transform: translateY(-2px); }
+  .pcard:hover { border-color: color-mix(in srgb, var(--accent) 40%, var(--line)); transform: translateY(-2px); box-shadow: 0 14px 32px -18px color-mix(in srgb, var(--accent) 45%, transparent); }
+  .pcard.featured::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; border-radius: var(--radius) 0 0 var(--radius); background: linear-gradient(180deg, var(--accent), color-mix(in srgb, var(--accent) 40%, transparent)); }
   .pcard.featured { grid-column: span 2; }
   .pcard.hidden { display: none; }
   .pcard-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
@@ -202,14 +207,13 @@
   .todo { color: var(--plan) !important; font-family: var(--mono); font-size: 12.5px !important; }
 
   /* ---------- skills ---------- */
-  .skill-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
-  .sgroup { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; }
-  .sgroup h3 { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--text-3); font-weight: 600; font-family: var(--sans); margin-bottom: 12px; }
-  .sgroup ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
-  .sgroup li { display: flex; justify-content: space-between; align-items: center; font-size: 14.5px; font-weight: 500; }
-  .sgroup li .bar { flex: 1; height: 4px; margin: 0 12px; background: var(--panel-2); border-radius: 2px; overflow: hidden; }
-  .sgroup li .bar i { display: block; height: 100%; background: var(--accent); border-radius: 2px; }
-  .sgroup li small { font-family: var(--mono); font-size: 11px; color: var(--text-3); white-space: nowrap; }
+  .skill-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+  .sgroup { position: relative; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 20px 20px 22px; overflow: hidden; }
+  .sgroup::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: linear-gradient(180deg, var(--accent), color-mix(in srgb, var(--accent) 35%, transparent)); }
+  .sgroup h3 { font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: var(--text-3); font-weight: 600; font-family: var(--sans); margin-bottom: 14px; }
+  .sgroup .pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pill { font-family: var(--mono); font-size: 12.5px; padding: 6px 12px; border-radius: 8px; background: var(--accent-soft); color: var(--accent); border: 1px solid color-mix(in srgb, var(--accent) 22%, transparent); transition: .15s; }
+  .pill:hover { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); transform: translateY(-1px); }
 
   /* ---------- activity log ---------- */
   .log { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
@@ -260,7 +264,6 @@
 
   <aside>
     <div>
-      <div class="avatar" id="avatar">V</div>
       <h1 id="name"></h1>
       <div class="role" id="role"></div>
     </div>
@@ -299,17 +302,17 @@
     </section>
 
     <section id="projects">
-      <div class="sec-head"><span class="n">02</span><h2>Projects</h2><div class="filters" id="filters"></div></div>
+      <div class="sec-head"><span class="n">02</span><h2>Projects</h2></div>
       <div class="grid" id="grid"></div>
     </section>
 
     <section id="skills">
-      <div class="sec-head"><span class="n">03</span><h2>Skills</h2><span class="sub">bar = how many projects use it</span></div>
+      <div class="sec-head"><span class="n">03</span><h2>Skills</h2></div>
       <div class="skill-groups" id="skill-groups"></div>
     </section>
 
     <section id="activity">
-      <div class="sec-head"><span class="n">04</span><h2>Activity log</h2><span class="sub">every milestone, newest first</span></div>
+      <div class="sec-head"><span class="n">04</span><h2>Activity log</h2></div>
       <div class="log" id="log"></div>
     </section>
 
@@ -348,7 +351,6 @@
 
   /* ---- sidebar ---- */
   document.title = `${PROFILE.name} — Portfolio`;
-  $("#avatar").textContent = PROFILE.name.split(" ").map(w => w[0]).join("").slice(0, 2).toUpperCase();
   $("#name").textContent = PROFILE.name;
   $("#role").textContent = PROFILE.title;
   const live = PROJECTS.filter(p => p.status === "in-progress");
@@ -361,7 +363,6 @@
     pin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>',
   };
   const cl = [];
-  if (PROFILE.email) cl.push(`<a href="mailto:${esc(PROFILE.email)}">${ico.mail}${esc(PROFILE.email)}</a>`);
   if (PROFILE.location) cl.push(`<span class="dim" style="display:flex;gap:8px;align-items:center">${ico.pin}${esc(PROFILE.location)}</span>`);
   PROFILE.links.forEach(l => cl.push(`<a href="${esc(l.url)}" target="_blank" rel="noopener">${ico.link}${esc(l.label)}</a>`));
   $("#contact-list").innerHTML = cl.join("");
@@ -382,15 +383,6 @@
   ].map(([b, s]) => `<div class="fact"><b>${esc(b)}</b><span>${s}</span></div>`).join("");
 
   /* ---- projects grid ---- */
-  const tags = [...new Set(PROJECTS.flatMap(p => p.tags || []))].sort();
-  let active = "all";
-  const renderFilters = () => {
-    $("#filters").innerHTML = ["all", ...tags].map(t => `<button class="chip ${t === active ? "active" : ""}" data-tag="${esc(t)}">${t === "all" ? "All" : esc(t)}</button>`).join("");
-    $("#filters").querySelectorAll(".chip").forEach(c => c.onclick = () => { active = c.dataset.tag; renderFilters(); applyFilter(); });
-  };
-  const applyFilter = () => document.querySelectorAll(".pcard").forEach(el =>
-    el.classList.toggle("hidden", !(active === "all" || el.dataset.tags.split("|").includes(active))));
-
   const order = { "in-progress": 0, completed: 1, planned: 2 };
   const sorted = [...PROJECTS].sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0) || order[a.status] - order[b.status] || parse(b.start) - parse(a.start));
   $("#grid").innerHTML = sorted.map(p => {
@@ -399,7 +391,7 @@
     <article class="pcard ${p.featured ? "featured" : ""}" id="p-${esc(p.id)}" data-tags="${esc((p.tags || []).join("|"))}">
       <div class="pcard-top">
         <span class="status ${esc(p.status)}">${STATUS[p.status] || esc(p.status)}</span>
-        <span class="mono dim">${esc(fmt(p.start))} – ${p.end ? esc(fmt(p.end)) : p.status === "planned" ? "upcoming" : "present"}</span>
+        <span class="mono dim">${esc(fmt(p.start))} – ${p.end ? esc(fmt(p.end)) : p.status === "planned" ? "Upcoming" : "Present"}</span>
       </div>
       <h3>${esc(p.title)}</h3>
       <p class="summary">${esc(p.summary)}</p>
@@ -423,21 +415,13 @@
   document.querySelectorAll(".expand").forEach(b => b.onclick = () => {
     const c = b.closest(".pcard"); b.setAttribute("aria-expanded", c.classList.toggle("open"));
   });
-  renderFilters(); applyFilter();
 
   /* ---- skills ---- */
-  const count = {};
-  PROJECTS.forEach(p => (p.tech || []).forEach(t => count[t] = (count[t] || 0) + 1));
-  const max = Math.max(1, ...Object.values(count));
-  const groups = typeof SKILL_GROUPS !== "undefined" ? { ...SKILL_GROUPS } : {};
-  const placed = new Set(Object.values(groups).flat());
-  const other = Object.keys(count).filter(t => !placed.has(t));
-  if (other.length) groups["Other"] = other;
-  $("#skill-groups").innerHTML = Object.entries(groups).map(([name, list]) => {
-    const items = list.filter(t => count[t]).sort((a, b) => count[b] - count[a]);
-    if (!items.length) return "";
-    return `<div class="sgroup"><h3>${esc(name)}</h3><ul>${items.map(t =>
-      `<li><span>${esc(t)}</span><span class="bar"><i style="width:${(count[t] / max * 100).toFixed(0)}%"></i></span><small>${count[t]} proj</small></li>`).join("")}</ul></div>`;
+  const skillGroups = typeof SKILL_GROUPS !== "undefined" ? SKILL_GROUPS : {};
+  $("#skill-groups").innerHTML = Object.entries(skillGroups).map(([name, list]) => {
+    if (!list || !list.length) return "";
+    return `<div class="sgroup"><h3>${esc(name)}</h3><div class="pills">${list.map(t =>
+      `<span class="pill">${esc(t)}</span>`).join("")}</div></div>`;
   }).join("");
 
   /* ---- activity log ---- */

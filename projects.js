@@ -101,7 +101,7 @@ const PROJECTS = [
     start: "2026-12-15",
     end: null,
     status: "planned",
-    featured: false,
+    featured: true,
     summary:
       "Winter project: a full UVM testbench (agents, scoreboard, coverage) for one of my RTL designs.",
     description:
@@ -139,7 +139,7 @@ const PROJECTS = [
 // that isn't listed here shows up under "Other".
 const SKILL_GROUPS = {
   "Languages":     ["SystemVerilog", "Verilog", "C", "Python"],
-  "Tools":         ["Quartus Prime", "Quartus Prime 25.1", "Questa", "Git"],
+  "Tools":         ["Quartus Prime", "Questa", "Git"],
   "Hardware":      ["Cyclone 10 LP", "RISC-V RV32I"],
   "Methodologies": ["UVM"],
 };
