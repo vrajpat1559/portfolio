@@ -10,48 +10,48 @@
 <style>
   /* ---------- tokens ---------- */
   :root {
-    --bg: #f4f6fa;
+    --bg: #f6f7f5;
     --panel: #ffffff;
-    --panel-2: #eef1f7;
-    --line: #dfe4ee;
-    --line-strong: #c2cad9;
-    --text: #0f1a2e;
-    --text-2: #4a5670;
-    --text-3: #8391ab;
-    --accent: #2457ff;
-    --accent-soft: #e4ebff;
+    --panel-2: #eef1ee;
+    --line: #e4e8e3;
+    --line-strong: #c8cfc6;
+    --text: #14201a;
+    --text-2: #4b5852;
+    --text-3: #8a978f;
+    --accent: #1a9d5a;
+    --accent-soft: #e3f4ea;
     --accent-ink: #ffffff;
-    --ok: #0f9d58;
-    --ok-soft: #dff4e8;
-    --live: #e07b00;
-    --live-soft: #fff0dc;
-    --plan: #6c5ce7;
-    --plan-soft: #ebe8ff;
-    --shadow: 0 1px 2px rgba(15,26,46,.05), 0 8px 24px -12px rgba(15,26,46,.18);
-    --radius: 16px;
+    --ok: #1a9d5a;
+    --ok-soft: #e3f4ea;
+    --live: #b9791a;
+    --live-soft: #f6edda;
+    --plan: #6b7480;
+    --plan-soft: #edeff1;
+    --shadow: 0 1px 2px rgba(20,32,26,.04);
+    --radius: 12px;
     --head: "Space Grotesk", "Inter", system-ui, sans-serif;
     --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   }
   [data-theme="dark"] {
-    --bg: #0b0f17;
-    --panel: #121826;
-    --panel-2: #182033;
-    --line: #232c40;
-    --line-strong: #344059;
-    --text: #e9edf5;
-    --text-2: #aab4c8;
-    --text-3: #6f7c96;
-    --accent: #6d8dff;
-    --accent-soft: #1b2650;
-    --accent-ink: #0b0f17;
-    --ok: #3dd383;
-    --ok-soft: #10301f;
-    --live: #ffa640;
-    --live-soft: #3a2608;
-    --plan: #a89bff;
-    --plan-soft: #251f4d;
-    --shadow: 0 1px 0 rgba(255,255,255,.03) inset, 0 12px 30px -14px rgba(0,0,0,.7);
+    --bg: #0d120f;
+    --panel: #131a15;
+    --panel-2: #1a231d;
+    --line: #232e27;
+    --line-strong: #36453b;
+    --text: #e8efe9;
+    --text-2: #a6b3aa;
+    --text-3: #6e7c72;
+    --accent: #43d383;
+    --accent-soft: #133021;
+    --accent-ink: #08120c;
+    --ok: #43d383;
+    --ok-soft: #133021;
+    --live: #e0a54a;
+    --live-soft: #33270d;
+    --plan: #8b96a0;
+    --plan-soft: #20262a;
+    --shadow: 0 10px 30px -18px rgba(0,0,0,.55);
   }
 
   /* ---------- base ---------- */
@@ -72,9 +72,9 @@
     display: flex; flex-direction: column; gap: 28px;
   }
   .avatar {
-    width: 56px; height: 56px; border-radius: 14px; display: grid; place-items: center;
-    background: linear-gradient(135deg, var(--accent), var(--plan)); color: #fff;
-    font-family: var(--head); font-weight: 700; font-size: 24px;
+    width: 52px; height: 52px; border-radius: 12px; display: grid; place-items: center;
+    background: var(--accent); color: var(--accent-ink);
+    font-family: var(--head); font-weight: 700; font-size: 22px;
   }
   aside h1 { font-size: 26px; font-weight: 700; line-height: 1.15; margin-top: 14px; }
   aside .role { color: var(--text-2); margin-top: 4px; font-size: 14.5px; }
@@ -241,7 +241,7 @@
 
   /* ---------- print ---------- */
   @media print {
-    :root, [data-theme="dark"] { --bg: #fff; --panel: #fff; --panel-2: #f3f3f3; --line: #ddd; --line-strong: #bbb; --text: #111; --text-2: #333; --text-3: #666; --accent: #1a3fbf; --accent-soft: #eef1ff; --shadow: none; }
+    :root, [data-theme="dark"] { --bg: #fff; --panel: #fff; --panel-2: #f3f3f3; --line: #ddd; --line-strong: #bbb; --text: #111; --text-2: #333; --text-3: #666; --accent: #15803d; --accent-soft: #e6f4ec; --shadow: none; }
     .layout { grid-template-columns: 1fr; }
     aside { position: static; height: auto; border: none; padding: 0 0 16px; }
     .sidenav, .side-actions, .filters, .expand, .log-more, .now .pulse { display: none !important; }
@@ -269,10 +269,9 @@
 
     <nav class="sidenav" id="sidenav">
       <a href="#about"><span class="n">01</span>About</a>
-      <a href="#roadmap"><span class="n">02</span>Roadmap</a>
-      <a href="#projects"><span class="n">03</span>Projects</a>
-      <a href="#skills"><span class="n">04</span>Skills</a>
-      <a href="#activity"><span class="n">05</span>Activity</a>
+      <a href="#projects"><span class="n">02</span>Projects</a>
+      <a href="#skills"><span class="n">03</span>Skills</a>
+      <a href="#activity"><span class="n">04</span>Activity</a>
     </nav>
 
     <div class="side-foot">
@@ -299,25 +298,18 @@
       </div>
     </section>
 
-    <section id="roadmap">
-      <div class="sec-head"><span class="n">02</span><h2>Roadmap</h2><span class="sub">when each project ran, and how they overlap</span></div>
-      <div class="gantt"><div class="gantt-inner" id="gantt"></div>
-        <div class="legend"><span><i class="l1"></i>In progress</span><span><i class="l2"></i>Completed</span><span><i class="l3"></i>Planned</span><span>· dots = milestones</span></div>
-      </div>
-    </section>
-
     <section id="projects">
-      <div class="sec-head"><span class="n">03</span><h2>Projects</h2><div class="filters" id="filters"></div></div>
+      <div class="sec-head"><span class="n">02</span><h2>Projects</h2><div class="filters" id="filters"></div></div>
       <div class="grid" id="grid"></div>
     </section>
 
     <section id="skills">
-      <div class="sec-head"><span class="n">04</span><h2>Skills</h2><span class="sub">bar = how many projects use it</span></div>
+      <div class="sec-head"><span class="n">03</span><h2>Skills</h2><span class="sub">bar = how many projects use it</span></div>
       <div class="skill-groups" id="skill-groups"></div>
     </section>
 
     <section id="activity">
-      <div class="sec-head"><span class="n">05</span><h2>Activity log</h2><span class="sub">every milestone, newest first</span></div>
+      <div class="sec-head"><span class="n">04</span><h2>Activity log</h2><span class="sub">every milestone, newest first</span></div>
       <div class="log" id="log"></div>
     </section>
 
@@ -350,7 +342,7 @@
     try { localStorage.setItem("theme-v2", t); } catch (e) {}
   };
   let saved = null; try { saved = localStorage.getItem("theme-v2"); } catch (e) {}
-  setTheme(saved || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
+  setTheme(saved || "light");
   $("#theme").onclick = () => setTheme(root.dataset.theme === "dark" ? "light" : "dark");
   $("#print").onclick = () => window.print();
 
@@ -386,41 +378,8 @@
     [PROJECTS.length, "projects"],
     [milestoneCount, "milestones"],
     [allTech.length, "technologies"],
-    [starts.length ? `${MONTHS[starts[0].getMonth()]} '${String(starts[0].getFullYear()).slice(2)}` : "—", "building since"],
+    ["May '26", "building since"],
   ].map(([b, s]) => `<div class="fact"><b>${esc(b)}</b><span>${s}</span></div>`).join("");
-
-  /* ---- roadmap / gantt ---- */
-  const barEnd = p => {
-    if (p.end) return parse(p.end);
-    if (p.status === "planned") { const d = parse(p.start); d.setMonth(d.getMonth() + 3); return d; }
-    return today > parse(p.start) ? today : parse(p.start);
-  };
-  const byStart = [...PROJECTS].sort((a, b) => parse(a.start) - parse(b.start));
-  let minD = new Date(Math.min(...byStart.map(p => parse(p.start)), today));
-  let maxD = new Date(Math.max(...byStart.map(barEnd), today));
-  minD = new Date(minD.getFullYear(), minD.getMonth(), 1);
-  maxD = new Date(maxD.getFullYear(), maxD.getMonth() + 1, 1);
-  const span = maxD - minD;
-  const pct = d => ((d - minD) / span * 100);
-  const monthsN = (maxD.getFullYear() - minD.getFullYear()) * 12 + (maxD.getMonth() - minD.getMonth());
-  let months = "";
-  for (let i = 0; i < monthsN; i++) {
-    const d = new Date(minD.getFullYear(), minD.getMonth() + i, 1);
-    const mid = new Date(minD.getFullYear(), minD.getMonth() + i, 15);
-    months += `<span style="left:${pct(mid)}%">${MONTHS[d.getMonth()]}${d.getMonth() === 0 || i === 0 ? ` '${String(d.getFullYear()).slice(2)}` : ""}</span>`;
-  }
-  let g = `<div class="g-head">Project</div><div class="g-months">${months}</div>`;
-  byStart.forEach((p, i) => {
-    const s = parse(p.start), e = barEnd(p);
-    const l = pct(s), w = Math.max(pct(e) - l, 1.5);
-    const dots = (p.milestones || []).map(m => `<i class="ms" style="left:${((parse(m.date) - s) / (e - s) * 100).toFixed(1)}%" title="${esc(fmtDay(m.date))}: ${esc(m.text)}"></i>`).join("");
-    g += `<div class="g-label">${esc(p.title)}<small>${esc(fmt(p.start))} – ${p.end ? esc(fmt(p.end)) : p.status === "planned" ? "TBD" : "now"}</small></div>
-          <div class="g-track-wrap"><div class="g-track" style="--month-w:${(100 / monthsN).toFixed(3)}%">
-            <a class="g-bar ${esc(p.status)}" href="#p-${esc(p.id)}" style="left:${l.toFixed(2)}%;width:${w.toFixed(2)}%" title="${esc(p.title)} — ${STATUS[p.status]}">${dots}</a>
-          </div></div>`;
-  });
-  g += `<div class="g-today" style="left:calc(200px + (100% - 200px) * ${(pct(today) / 100).toFixed(4)})"></div>`;
-  $("#gantt").innerHTML = g;
 
   /* ---- projects grid ---- */
   const tags = [...new Set(PROJECTS.flatMap(p => p.tags || []))].sort();
