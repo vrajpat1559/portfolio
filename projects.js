@@ -23,6 +23,7 @@ const PROFILE = {
 const PROJECTS = [
   {
     id: "uart",
+    repo: "vrajpat1559/UART",              // GitHub repo the sync routine watches
     title: "UART Serial Core (TX + RX)",
     start: "2026-08-21",
     end: null,
@@ -47,14 +48,16 @@ const PROJECTS = [
       { date: "2026-08-28", text: "RX synchronizer finalized and reviewed" },
       { date: "2026-09-01", text: "Receiver testbench passing" },
       { date: "2026-09-13", text: "Full-duplex loopback testbench passing; TX bench moved to non-blocking assignments" },
+      { date: "2026-09-14", text: "README written; Quartus project file cleaned up (top-level entity, stale source entries)" },
     ],
     links: [
-      { label: "Source", url: "../UART" },   // local path — swap for a GitHub URL when pushed
+      { label: "GitHub", url: "https://github.com/vrajpat1559/UART" },
     ],
   },
 
   {
     id: "hw-accelerator",
+    repo: "vrajpat1559/AI-Hardware-Accelerator",
     title: "Hardware Accelerator",
     start: "2026-09-01",
     end: null,
@@ -77,6 +80,7 @@ const PROJECTS = [
 
   {
     id: "riscv-cpu",
+    repo: null,                            // set when the repo exists
     title: "Pipelined RISC-V CPU",
     start: "2026-09-15",
     end: null,
@@ -97,6 +101,7 @@ const PROJECTS = [
 
   {
     id: "uvm",
+    repo: null,
     title: "UVM Verification Environment",
     start: "2026-12-15",
     end: null,
