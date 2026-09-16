@@ -8,15 +8,26 @@
 // =============================================================================
 
 const PROFILE = {
-  name: "Vraj",                       // TODO: add your full name
-  title: "Electrical / Computer Engineering Student",
-  tagline: "I build digital hardware from the ground up — RTL, testbenches, and the tooling around them.",
-  location: "",                       // e.g. "Toronto, ON"
+  name: "Vraj Patel",
+  title: "Computer Engineering @ UIC",
+  role: "RTL design & verification",          // small status pill in the nav
+  headline: ["Computer Engineering", "at UIC."],  // second part is rendered in italic serif
+  subhead: "Designing digital hardware in SystemVerilog and proving it works before it ships.",
+  tagline: "My focus is RTL design and design verification: writing SystemVerilog, checking behavior against reference models, and learning through FPGA hardware.",
+  seeking: "Seeking Summer 2027 internships",
+  focus: "RTL / ASIC design · Design verification",
+  location: "Chicago, IL",
   email: "heyitsvraj@gmail.com",
   links: [
-    // { label: "GitHub",   url: "https://github.com/YOUR_USERNAME" },
+    { label: "GitHub", url: "https://github.com/vrajpat1559" },
     // { label: "LinkedIn", url: "https://linkedin.com/in/YOUR_HANDLE" },
     // { label: "Resume",   url: "resume.pdf" },
+  ],
+  // Three tiles under the hero. `big` is the large figure, `label` the line next to it, `sub` the muted line.
+  stats: [
+    { big: "27 / 27",       label: "Directed TX tests passing",   sub: "UART · reference comparison" },
+    { big: "SystemVerilog", label: "RTL & self-checking testbenches", sub: "Design and verification together" },
+    { big: "Cyclone 10",    label: "Hands-on FPGA platform",      sub: "Quartus Prime · board bring-up" },
   ],
 };
 
@@ -33,7 +44,7 @@ const PROJECTS = [
       "A parameterized 8N1 UART transmitter and receiver written in SystemVerilog, verified with self-checking testbenches and a full-duplex loopback simulation.",
     description:
       "Built from scratch targeting an Altera Cyclone 10 LP in Quartus Prime. The transmitter is a four-state FSM (idle, start, data, stop) with a cycle-accurate baud counter. The receiver adds a two-flop input synchronizer, oversampling with mid-bit sampling, start-bit detection, and a bit counter. Each block was written and reviewed one at a time, then tied together in a loopback bench that drives TX into RX and checks every byte.",
-    tech: ["SystemVerilog", "Quartus Prime 25.1", "Questa", "Cyclone 10 LP", "Git"],
+    tech: ["SystemVerilog", "Quartus Prime", "Questa", "Cyclone 10 LP", "Git"],
     tags: ["FPGA", "RTL", "Verification"],
     highlights: [
       "Parameterized CLK_FREQ_HZ / BAUD_RATE so the same core drops into any board",

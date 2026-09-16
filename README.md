@@ -2,16 +2,17 @@
 
 Static, single-page portfolio. No build step, no dependencies. Double-click `index.html`.
 
-Two designs share the same data file:
+Three designs share the same data file:
 
-- `index.html` — sidebar layout: About, Roadmap (Gantt chart), Projects grid, Skills by group, Activity log.
+- `index.html` — current design: top nav, "From RTL to ready." hero with circuit illustration, stats strip, Selected work cards, About.
+- `index-v2.html` — sidebar layout with green accent: About, Projects, Skills, Activity log.
 - `index-v1.html` — vertical timeline layout with year markers and filter chips.
 
 ## Add / edit projects
 
 Everything lives in `projects.js`:
 
-- `PROFILE` — name, title, tagline, location, email, external links (GitHub, LinkedIn, resume PDF).
+- `PROFILE` — name, title, role pill, headline (two parts, second is italic), subhead, tagline, seeking/focus lines, location, email, links, and the three `stats` tiles under the hero.
 - `PROJECTS` — one object per project. Copy the template at the bottom of the array.
 - `SKILL_GROUPS` — optional buckets for the Skills section. Unlisted tech lands under "Other".
 
@@ -33,7 +34,7 @@ Tip: `git log --date=short --pretty='%ad %s'` inside a project repo gives you mi
 
 ## Export for a resume
 
-Click "Save as PDF" in the sidebar. The print stylesheet flattens to one column, expands every
+Press Ctrl+P in the browser. The print stylesheet flattens to one column, expands every
 card and the full activity log, and prints link URLs inline. Deep-link a project with `index.html#p-uart`.
 
 ## Preview through Claude Code
