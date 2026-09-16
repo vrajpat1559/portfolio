@@ -11,23 +11,14 @@ const PROFILE = {
   name: "Vraj Patel",
   title: "Computer Engineering @ UIC",
   role: "RTL design & verification",          // small status pill in the nav
-  headline: ["Computer Engineering", "at UIC."],  // second part is rendered in italic serif
-  subhead: "Designing digital hardware in SystemVerilog and proving it works before it ships.",
+  headline: ["Computer Engineering", "student at UIC."],  // second part is rendered in italic serif
   tagline: "My focus is RTL design and design verification: writing SystemVerilog, checking behavior against reference models, and learning through FPGA hardware.",
-  seeking: "Seeking Summer 2027 internships",
-  focus: "RTL / ASIC design · Design verification",
   location: "Chicago, IL",
-  email: "heyitsvraj@gmail.com",
+  email: "vrajpat1559@outlook.com",
   links: [
     { label: "GitHub", url: "https://github.com/vrajpat1559" },
     // { label: "LinkedIn", url: "https://linkedin.com/in/YOUR_HANDLE" },
     // { label: "Resume",   url: "resume.pdf" },
-  ],
-  // Three tiles under the hero. `big` is the large figure, `label` the line next to it, `sub` the muted line.
-  stats: [
-    { big: "27 / 27",       label: "Directed TX tests passing",   sub: "UART · reference comparison" },
-    { big: "SystemVerilog", label: "RTL & self-checking testbenches", sub: "Design and verification together" },
-    { big: "Cyclone 10",    label: "Hands-on FPGA platform",      sub: "Quartus Prime · board bring-up" },
   ],
 };
 
@@ -69,24 +60,31 @@ const PROJECTS = [
   {
     id: "hw-accelerator",
     repo: "vrajpat1559/AI-Hardware-Accelerator",
-    title: "Hardware Accelerator",
-    start: "2026-09-01",
+    title: "AI Accelerator Simulator + Systolic Array RTL",
+    start: "2026-08-30",
     end: null,
     status: "in-progress",
     featured: true,
     summary:
-      "A custom hardware accelerator in RTL — offloading a compute-heavy kernel from software into dedicated logic.",
+      "Two-person project: a Python simulator that predicts tokens/sec for TPU-style accelerator designs, validated against a weight-stationary systolic array I'm building in SystemVerilog.",
     description:
-      "TODO: describe the workload being accelerated (matrix multiply, convolution, FFT, hashing…), the datapath architecture, how data is fed in, and how it compares to the software baseline. Add throughput / latency / resource numbers once measured.",
-    tech: ["SystemVerilog", "Quartus Prime", "Questa"],
-    tags: ["FPGA", "RTL", "Accelerator"],
+      "I own the hardware side (CE) while my partner builds the cycle-approximate simulator (CS). The RTL is a weight-stationary systolic array in the style of the Google TPU: each processing element parks one weight, passes activations to the right and partial sums down, and the Python model and the Verilog must agree on both the matmul results and the tick counts for identical workloads. Building bottom-up — MAC, then a processing element, then a 2x2 array, then a parameterized NxN array — with a self-checking testbench at every step.",
+    tech: ["SystemVerilog", "Quartus Prime", "Questa", "Python", "Git"],
+    tags: ["FPGA", "RTL", "Accelerator", "Verification"],
     highlights: [
-      "TODO: one concrete result (e.g. 'Nx speedup over C baseline at M MHz')",
+      "Signed, parameterized combinational MAC (psum_out = psum_in + act * weight) with no per-PE accumulator, matching the weight-stationary dataflow",
+      "Self-checking testbench against the shared 2x2 hand-traced example (outputs 26, 33, 28, 22), sign combinations, and 8-bit corner cases",
+      "Phase 0 complete: TPU (Jouppi et al., ISCA 2017), Eyeriss dataflow taxonomy, SCALE-Sim",
     ],
     milestones: [
-      { date: "2026-09-01", text: "Architecture and datapath design started" },
+      { date: "2026-08-30", text: "Repo created with partner; roadmap, workflow guide, decision log" },
+      { date: "2026-09-15", text: "Read the TPU and Eyeriss papers; Phase 0 (learn) marked complete" },
+      { date: "2026-09-15", text: "Quartus project set up; combinational MAC unit + self-checking testbench merged (PR #6)" },
+      { date: "2026-09-16", text: "MAC testbench run in Icarus Verilog: 17/17 checks passing (2x2 hand trace, sign cases, 8-bit corners)" },
     ],
-    links: [],
+    links: [
+      { label: "GitHub", url: "https://github.com/vrajpat1559/AI-Hardware-Accelerator" },
+    ],
   },
 
   {
