@@ -214,7 +214,6 @@
       <span class="brand-name" id="brand"></span>
     </a>
     <div class="navlinks"><a href="#work">Selected work</a><a href="#about">About</a></div>
-    <span class="nav-status eyebrow" id="nav-status"></span>
   </div>
 </nav>
 
@@ -277,14 +276,12 @@
     <section id="about" class="wrap">
       <div class="sec-head">
         <div>
-          <div class="eyebrow"><span class="dot"></span>About</div>
-          <h2>Who's <em>building.</em></h2>
+          <h2>About <em>myself.</em></h2>
         </div>
       </div>
       <div class="about">
         <div id="about-text"></div>
         <div>
-          <div class="side-block"><h4>Currently</h4><ul class="now-list" id="now-list"></ul></div>
           <div class="side-block"><h4>Toolbox</h4><div class="skills" id="skills"></div></div>
           <div class="side-block"><h4>Contact</h4><div class="contact" id="contact"></div></div>
         </div>
@@ -314,8 +311,7 @@
   /* ---- nav + hero ---- */
   const parts = P.name.trim().split(/\s+/);
   $("#brand").innerHTML = parts.length > 1 ? `${esc(parts[0].toUpperCase())}<span>/</span>${esc(parts.slice(1).join(" ").toUpperCase())}` : esc(P.name.toUpperCase());
-  $("#nav-status").innerHTML = `<span class="dot"></span>${esc(P.role || P.title)}`;
-  $("#hero-eyebrow").textContent = `${P.name} · ${P.role || P.title}`;
+  $("#hero-eyebrow").textContent = P.name;
   const hl = P.headline || ["Hello,", "world."];
   $("#headline").innerHTML = `${esc(hl[0])} <em>${esc(hl[1])}</em>`;
   $("#tagline").textContent = P.tagline || "";
@@ -368,11 +364,6 @@
   $("#about-text").innerHTML = `
     <p>I'm <strong>${esc(P.name)}</strong>, studying ${esc(P.title.replace(/^@\s*/, ""))}. ${esc(P.tagline)}</p>
     <p>I work one block at a time: write the RTL, write the testbench that proves it, review both, then move on. That's how the UART core came together, and it's how the next projects will too.</p>`;
-  $("#now-list").innerHTML = [
-    ...live.map(p => `<li><span class="k">NOW</span><a href="#p-${esc(p.id)}">${esc(p.title)}</a></li>`),
-    ...next.slice(0, 2).map(p => `<li><span class="k">NEXT</span><a href="#p-${esc(p.id)}">${esc(p.title)}</a></li>`),
-    ...done.slice(0, 2).map(p => `<li><span class="k">DONE</span><a href="#p-${esc(p.id)}">${esc(p.title)}</a></li>`),
-  ].join("") || `<li>Nothing yet.</li>`;
 
   const count = {};
   PROJECTS.forEach(p => (p.tech || []).forEach(t => count[t] = (count[t] || 0) + 1));
