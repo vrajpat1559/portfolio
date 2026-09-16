@@ -82,6 +82,7 @@ const PROJECTS = [
       { date: "2026-09-15", text: "Read the TPU and Eyeriss papers; Phase 0 (learn) marked complete" },
       { date: "2026-09-15", text: "Quartus project set up; combinational MAC unit + self-checking testbench merged (PR #6)" },
       { date: "2026-09-16", text: "MAC testbench run in Icarus Verilog: 17/17 checks passing (2x2 hand trace, sign cases, 8-bit corners)" },
+      { date: "2026-09-16", text: "Phase 1 started: Python simulator skeleton for array config, workload shapes, and cycle model, with unit tests" },
     ],
     links: [
       { label: "GitHub", url: "https://github.com/vrajpat1559/AI-Hardware-Accelerator" },
