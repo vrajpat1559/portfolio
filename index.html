@@ -158,7 +158,10 @@
 
   /* ---------- about ---------- */
   .about-bg { background: linear-gradient(180deg, var(--bg), var(--bg-lav) 60%, var(--bg)); }
+  #about { padding-block: 90px 56px; }
   .about { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: start; }
+  .about-h2 { margin-bottom: 28px; }
+  .side-block:last-child { margin-bottom: 0; }
   .about p { font-size: 19px; color: var(--text-2); margin: 0 0 22px; line-height: 1.7; }
   .about p strong { color: var(--text); font-weight: 600; }
   .side-block { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 30px 32px; margin-bottom: 18px; }
@@ -274,13 +277,8 @@
 
   <div class="about-bg">
     <section id="about" class="wrap">
-      <div class="sec-head">
-        <div>
-          <h2>About <em>myself.</em></h2>
-        </div>
-      </div>
       <div class="about">
-        <div id="about-text"></div>
+        <div><h2 class="about-h2">About <em>myself.</em></h2><div id="about-text"></div></div>
         <div>
           <div class="side-block"><h4>Toolbox</h4><div class="skills" id="skills"></div></div>
           <div class="side-block"><h4>Contact</h4><div class="contact" id="contact"></div></div>
@@ -361,9 +359,7 @@
   const live = PROJECTS.filter(p => p.status === "in-progress");
   const next = PROJECTS.filter(p => p.status === "planned").sort((a, b) => parse(a.start) - parse(b.start));
   const done = PROJECTS.filter(p => p.status === "completed");
-  $("#about-text").innerHTML = `
-    <p>I'm <strong>${esc(P.name)}</strong>, studying ${esc(P.title.replace(/^@\s*/, ""))}. ${esc(P.tagline)}</p>
-    <p>I work one block at a time: write the RTL, write the testbench that proves it, review both, then move on. That's how the UART core came together, and it's how the next projects will too.</p>`;
+  $("#about-text").innerHTML = `<p>${esc(P.bio || P.tagline)}</p>`;
 
   const count = {};
   PROJECTS.forEach(p => (p.tech || []).forEach(t => count[t] = (count[t] || 0) + 1));
