@@ -1,4 +1,4 @@
-# Portfolio
+# Personal Portfolio
 
 Static, single-page portfolio. No build step, no dependencies. Double-click `index.html`.
 Light and dark themes: the toggle in the top-right corner remembers your choice; first visit follows the system setting.
