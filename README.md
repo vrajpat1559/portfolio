@@ -2,11 +2,7 @@
 
 Static, single-page portfolio. No build step, no dependencies. Double-click `index.html`.
 
-Three designs share the same data file:
-
-- `index.html` — current design: top nav, "From RTL to ready." hero with circuit illustration, stats strip, Selected work cards, About.
-- `index-v2.html` — sidebar layout with green accent: About, Projects, Skills, Activity log.
-- `index-v1.html` — vertical timeline layout with year markers and filter chips.
+The two earlier designs (vertical timeline, green sidebar) live on the `old-designs` branch.
 
 ## Add / edit projects
 

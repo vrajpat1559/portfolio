@@ -18,7 +18,7 @@ const PROFILE = {
   email: "vrajpat1559@outlook.com",
   links: [
     { label: "GitHub", url: "https://github.com/vrajpat1559" },
-    // { label: "LinkedIn", url: "https://linkedin.com/in/YOUR_HANDLE" },
+    { label: "LinkedIn", url: "https://www.linkedin.com/in/vraj-patel-afs" },
     // { label: "Resume",   url: "resume.pdf" },
   ],
 };
