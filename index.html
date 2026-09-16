@@ -161,33 +161,6 @@
   .picon { width: 44px; height: 44px; border-radius: 11px; display: grid; place-items: center; background: var(--panel-2); border: 1px solid var(--line); color: var(--teal); }
   .picon svg { width: 22px; height: 22px; }
 
-  /* ---------- roadmap ---------- */
-  #roadmap { padding-block: 40px 90px; }
-  .rm { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 26px 16px; overflow-x: auto; }
-  .rm-inner { position: relative; min-width: 640px; display: grid; grid-template-columns: 190px 1fr; row-gap: 12px; align-items: center; }
-  .rm-head { font-family: var(--mono); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--text-3); }
-  .rm-months { position: relative; height: 22px; border-bottom: 1px solid var(--line); }
-  .rm-months span { position: absolute; top: 0; font-family: var(--mono); font-size: 11px; color: var(--text-3); transform: translateX(-50%); white-space: nowrap; }
-  .rm-label { font-size: 14.5px; font-weight: 500; padding-right: 14px; line-height: 1.25; }
-  .rm-label a:hover { color: var(--teal); }
-  .rm-label small { display: block; font-family: var(--mono); font-size: 11px; color: var(--text-3); font-weight: 400; margin-top: 3px; }
-  .rm-track { position: relative; height: 30px; background-image: linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: var(--month-w) 100%; border-radius: 6px; }
-  .rm-bar { position: absolute; top: 4px; height: 22px; border-radius: 6px; border: 1px solid transparent; display: block; transition: .15s; }
-  .rm-bar:hover { filter: brightness(.95); transform: translateY(-1px); }
-  .rm-bar.in-progress { background: var(--live-soft); border-color: color-mix(in srgb, var(--live) 45%, transparent); }
-  .rm-bar.completed   { background: var(--ok-soft);   border-color: color-mix(in srgb, var(--ok) 45%, transparent); }
-  .rm-bar.planned     { background: var(--plan-soft); border-style: dashed; border-color: color-mix(in srgb, var(--plan) 55%, transparent); }
-  .rm-bar .ms-dot { position: absolute; top: 50%; width: 6px; height: 6px; border-radius: 50%; transform: translate(-50%, -50%); background: var(--purple); }
-  .rm-bar.in-progress .ms-dot { background: var(--live); }
-  .rm-bar.completed .ms-dot { background: var(--ok); }
-  .rm-today { position: absolute; top: 0; bottom: 0; width: 0; border-left: 2px dashed var(--teal); pointer-events: none; z-index: 2; }
-  .rm-today::after { content: "today"; position: absolute; bottom: -6px; left: 5px; font-family: var(--mono); font-size: 10px; color: var(--teal); background: var(--panel); padding: 0 3px; border-radius: 3px; }
-  .rm-legend { display: flex; gap: 18px; margin-top: 16px; font-size: 12.5px; color: var(--text-2); flex-wrap: wrap; }
-  .rm-legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; border: 1px solid transparent; }
-  .rm-legend .l1 { background: var(--live-soft); border-color: var(--live); }
-  .rm-legend .l2 { background: var(--ok-soft); border-color: var(--ok); }
-  .rm-legend .l3 { background: var(--plan-soft); border-color: var(--plan); border-style: dashed; }
-
   /* ---------- education ---------- */
   .edu b { display: block; font-size: 16px; font-weight: 600; }
   .edu .deg { color: var(--text-2); font-size: 15px; }
@@ -307,7 +280,7 @@
       <span class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 3v18M12 3v18M16 3v18M3 8h18M3 12h18M3 16h18"/></svg></span>
       <span class="brand-name" id="brand"></span>
     </a>
-    <div class="navlinks"><a href="#roadmap">Roadmap</a><a href="#work">Selected Work</a><a href="#about">About</a></div>
+    <div class="navlinks"><a href="#work">Selected Work</a><a href="#about">About</a></div>
     <button class="theme-btn" id="theme" title="Toggle dark mode" aria-label="Toggle dark mode">
       <svg class="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
       <svg class="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
@@ -359,17 +332,6 @@
 </div>
 
 <main>
-  <section id="roadmap" class="wrap">
-    <div class="sec-head rv">
-      <div><h2>The <em>roadmap.</em></h2></div>
-      <p>When each project ran, how they overlap, and what's next. Dots are milestones. Click a bar to jump to the project.</p>
-    </div>
-    <div class="rm rv">
-      <div class="rm-inner" id="rm"></div>
-      <div class="rm-legend"><span><i class="l1"></i>In progress</span><span><i class="l2"></i>Completed</span><span><i class="l3"></i>Planned</span></div>
-    </div>
-  </section>
-
   <section id="work" class="wrap">
     <div class="sec-head rv">
       <div>
@@ -497,37 +459,6 @@
     $("#edu").innerHTML = `${E.school ? `<b>${esc(E.school)}</b>` : ""}${E.degree ? `<div class="deg">${esc(E.degree)}</div>` : ""}${E.grad ? `<div class="grad">${esc(E.grad)}</div>` : ""}${(E.coursework || []).length ? `<div class="courses">${E.coursework.map(c => `<span>${esc(c)}</span>`).join("")}</div>` : ""}`;
   } else {
     $("#edu-block").remove();
-  }
-
-  /* ---- roadmap ---- */
-  const today = new Date();
-  const barEnd = p => {
-    if (p.end) return parse(p.end);
-    if (p.status === "planned") { const d = parse(p.start); d.setMonth(d.getMonth() + 3); return d; }
-    return today > parse(p.start) ? today : parse(p.start);
-  };
-  const byStart = [...PROJECTS].sort((a, b) => parse(a.start) - parse(b.start));
-  if (byStart.length) {
-    let minD = new Date(Math.min(...byStart.map(p => parse(p.start)), today));
-    let maxD = new Date(Math.max(...byStart.map(barEnd), today));
-    minD = new Date(minD.getFullYear(), minD.getMonth(), 1);
-    maxD = new Date(maxD.getFullYear(), maxD.getMonth() + 1, 1);
-    const span = maxD - minD, pct = d => (d - minD) / span * 100;
-    const monthsN = (maxD.getFullYear() - minD.getFullYear()) * 12 + (maxD.getMonth() - minD.getMonth());
-    let months = "";
-    for (let i = 0; i < monthsN; i++) {
-      const d = new Date(minD.getFullYear(), minD.getMonth() + i, 1), mid = new Date(minD.getFullYear(), minD.getMonth() + i, 15);
-      months += `<span style="left:${pct(mid).toFixed(2)}%">${MONTHS[d.getMonth()]}${d.getMonth() === 0 || i === 0 ? ` '${String(d.getFullYear()).slice(2)}` : ""}</span>`;
-    }
-    let g = `<div class="rm-head">Project</div><div class="rm-months">${months}</div>`;
-    byStart.forEach(p => {
-      const s = parse(p.start), e = barEnd(p), l = pct(s), w = Math.max(pct(e) - l, 1.5);
-      const dots = (p.milestones || []).map(m => `<i class="ms-dot" style="left:${Math.min(100, Math.max(0, (parse(m.date) - s) / (e - s) * 100)).toFixed(1)}%" title="${esc(fmtDay(m.date))}: ${esc(m.text)}"></i>`).join("");
-      g += `<div class="rm-label"><a href="#p-${esc(p.id)}">${esc(p.title)}</a><small>${esc(fmt(p.start))} – ${p.end ? esc(fmt(p.end)) : p.status === "planned" ? "TBD" : "now"}</small></div>
-            <div class="rm-track" style="--month-w:${(100 / monthsN).toFixed(3)}%"><a class="rm-bar ${esc(p.status)}" href="#p-${esc(p.id)}" style="left:${l.toFixed(2)}%;width:${w.toFixed(2)}%" title="${esc(p.title)} — ${STATUS[p.status]}">${dots}</a></div>`;
-    });
-    g += `<div class="rm-today" style="left:calc(190px + (100% - 190px) * ${(pct(today) / 100).toFixed(4)})"></div>`;
-    $("#rm").innerHTML = g;
   }
 
   /* ---- reveals, scroll spy, back to top ---- */
