@@ -113,7 +113,7 @@
   .seeking { margin-top: 52px; font-size: 18px; color: var(--text-2); }
   .seeking .mono { display: block; font-size: 14px; color: var(--text-3); margin-top: 4px; letter-spacing: .02em; }
 
-  .figure { position: relative; }
+  .figure { position: relative; width: 90%; justify-self: end; }
   .fig-head { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 12.5px; letter-spacing: .18em; color: var(--text-2); margin-bottom: 20px; }
   .figure svg { width: 100%; height: auto; display: block; }
   .fig-foot { display: flex; justify-content: space-between; align-items: center; font-family: var(--mono); font-size: 12.5px; letter-spacing: .2em; color: var(--text-2); margin-top: 22px; padding: 0 8px; }
@@ -242,6 +242,7 @@
   /* ---------- responsive ---------- */
   @media (max-width: 1000px) {
     .hero { grid-template-columns: 1fr; padding-block: 72px 56px; gap: 48px; }
+    .figure { width: 100%; }
     .card { grid-template-columns: 1fr; gap: 24px; padding: 28px; }
     .card .num { padding-top: 0; }
     .details { grid-column: 1 / -1; }
@@ -352,7 +353,7 @@
 
 <footer class="wrap">
   <span id="foot-left"></span>
-  <span>Last updated <span class="mono" id="foot-date"></span></span>
+  <span>Built with plain HTML, CSS, and JavaScript. No framework. · Last updated <span class="mono" id="foot-date"></span></span>
 </footer>
 
 <script src="projects.js"></script>
