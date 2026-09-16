@@ -161,12 +161,6 @@
   .picon { width: 44px; height: 44px; border-radius: 11px; display: grid; place-items: center; background: var(--panel-2); border: 1px solid var(--line); color: var(--teal); }
   .picon svg { width: 22px; height: 22px; }
 
-  /* ---------- education ---------- */
-  .edu b { display: block; font-size: 16px; font-weight: 600; }
-  .edu .deg { color: var(--text-2); font-size: 15px; }
-  .edu .grad { font-family: var(--mono); font-size: 12px; color: var(--text-3); margin-top: 4px; letter-spacing: .02em; }
-  .edu .courses { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 6px; }
-  .edu .courses span { font-size: 13.5px; padding: 4px 10px; border-radius: 7px; background: var(--panel-2); border: 1px solid var(--line); }
 
   /* ---------- sections ---------- */
   section { padding-block: 110px; }
@@ -346,7 +340,6 @@
       <div class="about">
         <div class="rv"><h2 class="about-h2">About <em>myself.</em></h2><div id="about-text"></div></div>
         <div>
-          <div class="side-block rv" id="edu-block"><h4>Education</h4><div class="edu" id="edu"></div></div>
           <div class="side-block rv"><h4>Toolbox</h4><div class="skills" id="skills"></div></div>
           <div class="side-block rv"><h4>Contact</h4><div class="contact" id="contact"></div></div>
         </div>
@@ -453,13 +446,6 @@
   const done = PROJECTS.filter(p => p.status === "completed");
   $("#about-text").innerHTML = `<p>${esc(P.bio || P.tagline)}</p>`;
 
-  /* ---- education ---- */
-  const E = P.education;
-  if (E && (E.school || E.degree)) {
-    $("#edu").innerHTML = `${E.school ? `<b>${esc(E.school)}</b>` : ""}${E.degree ? `<div class="deg">${esc(E.degree)}</div>` : ""}${E.grad ? `<div class="grad">${esc(E.grad)}</div>` : ""}${(E.coursework || []).length ? `<div class="courses">${E.coursework.map(c => `<span>${esc(c)}</span>`).join("")}</div>` : ""}`;
-  } else {
-    $("#edu-block").remove();
-  }
 
   /* ---- reveals, scroll spy, back to top ---- */
   const revealEls = document.querySelectorAll(".rv");
@@ -498,7 +484,8 @@
 
   /* ---- footer + deep link ---- */
   $("#foot-left").textContent = `© ${new Date().getFullYear()} ${P.name}`;
-  const latest = PROJECTS.flatMap(p => (p.milestones || []).map(m => m.date)).sort().pop();
+  const todayISO = new Date().toISOString().slice(0, 10);
+  const latest = PROJECTS.flatMap(p => (p.milestones || []).map(m => m.date)).filter(d => d <= todayISO).sort().pop();
   $("#foot-date").textContent = latest ? fmtDay(latest) : "";
   const openHash = () => { if (location.hash.startsWith("#p-")) { const c = $(location.hash); if (c) c.classList.add("open"); } };
   addEventListener("hashchange", openHash); openHash();
