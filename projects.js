@@ -33,7 +33,7 @@ const PROJECTS = [
     start: "2026-08-21",
     end: null,
     status: "in-progress",            // wrapping up
-    progress: { value: 90, basis: "TX, RX, and loopback testbenches passing; README and final cleanup remaining" },
+    progress: { value: 56, basis: "5 of 9 checklist items done in the repo README" },
     featured: true,
     summary:
       "A parameterized 8N1 UART transmitter and receiver written in SystemVerilog, verified with self-checking testbenches and a full-duplex loopback simulation.",
