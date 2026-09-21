@@ -473,7 +473,7 @@
   const other = Object.keys(count).filter(t => !placed.has(t));
   if (other.length) groups["Other"] = other;
   $("#skills").innerHTML = Object.entries(groups).map(([g, list]) => {
-    const items = list.filter(t => count[t]);
+    const items = list;
     return items.length ? `<div class="row"><b>${esc(g)}</b><div>${items.map(t => `<span>${esc(t)}</span>`).join("")}</div></div>` : "";
   }).join("");
 

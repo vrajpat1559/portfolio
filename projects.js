@@ -36,7 +36,7 @@ const PROJECTS = [
       "A parameterized 8N1 UART transmitter and receiver written in SystemVerilog, verified with self-checking testbenches and a full-duplex loopback simulation.",
     description:
       "Built from scratch targeting an Altera Cyclone 10 LP in Quartus Prime. The transmitter is a four-state FSM (idle, start, data, stop) with a cycle-accurate baud counter. The receiver adds a two-flop input synchronizer, oversampling with mid-bit sampling, start-bit detection, and a bit counter. Each block was written and reviewed one at a time, then tied together in a loopback bench that drives TX into RX and checks every byte.",
-    tech: ["SystemVerilog", "Quartus Prime", "Questa", "Cyclone 10 LP", "Git"],
+    tech: ["SystemVerilog", "Icarus Verilog", "GTKWave", "Quartus Prime", "Questa", "Intel Cyclone 10 FPGA", "Git"],
     tags: ["FPGA", "RTL", "Verification"],
     highlights: [
       "Parameterized CLK_FREQ_HZ / BAUD_RATE so the same core drops into any board",
@@ -70,7 +70,7 @@ const PROJECTS = [
       "Two-person project: a Python simulator that predicts tokens/sec for TPU-style accelerator designs, validated against a weight-stationary systolic array I'm building in SystemVerilog.",
     description:
       "I own the hardware side (CE) while my partner builds the cycle-approximate simulator (CS). The RTL is a weight-stationary systolic array in the style of the Google TPU: each processing element parks one weight, passes activations to the right and partial sums down, and the Python model and the Verilog must agree on both the matmul results and the tick counts for identical workloads. Building bottom-up — MAC, then a processing element, then a 2x2 array, then a parameterized NxN array — with a self-checking testbench at every step.",
-    tech: ["SystemVerilog", "Quartus Prime", "Questa", "Python", "Git"],
+    tech: ["SystemVerilog", "Icarus Verilog", "Quartus Prime", "Questa", "Python", "Git"],
     tags: ["FPGA", "RTL", "Accelerator", "Verification"],
     highlights: [
       "Signed, parameterized combinational MAC (psum_out = psum_in + act * weight) with no per-PE accumulator, matching the weight-stationary dataflow",
@@ -154,8 +154,8 @@ const PROJECTS = [
 // Optional: group your skills for the Skills section. Anything in `tech` above
 // that isn't listed here shows up under "Other".
 const SKILL_GROUPS = {
-  "Languages":     ["SystemVerilog", "Verilog", "C", "Python"],
-  "Tools":         ["Quartus Prime", "Questa", "Git"],
-  "Hardware":      ["Cyclone 10 LP", "RISC-V RV32I"],
-  "Methodologies": ["UVM"],
+  "Languages":    ["SystemVerilog", "Verilog", "C", "C++", "Python", "Assembly"],
+  "Verification": ["Self-checking Testbenches", "Directed Test Development", "Functional Simulation", "UVM"],
+  "Tools":        ["Icarus Verilog", "GTKWave", "Quartus Prime", "Questa", "Git"],
+  "Hardware":     ["FPGA Synthesis & Implementation", "FSM Design", "UART Protocols", "Intel Cyclone 10 FPGA", "RISC-V RV32I"],
 };
