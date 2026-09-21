@@ -11,9 +11,9 @@ const PROFILE = {
   name: "Vraj Patel",
   title: "Computer Engineering @ UIC",
   role: "RTL design & verification",          // small status pill in the nav
-  headline: ["Computer Engineering", "at UIC."],  // second part is rendered in italic serif
+  headline: ["Computer Engineering", "at the University of Illinois Chicago."],  // second part is rendered in italic serif
   tagline: "My focus is RTL design and design verification: writing SystemVerilog, checking behavior against reference models, and learning through FPGA hardware.",
-  bio: "My name is Vraj Patel and I'm a computer engineering student at UIC. Most of my time goes into RTL design and verification: writing SystemVerilog, building testbenches that check my designs against reference models, and bringing them up on real FPGA hardware to see them work.",
+  bio: "My name is Vraj Patel and I'm a computer engineering student at the University of Illinois Chicago. Most of my time goes into RTL design and verification: writing SystemVerilog, building testbenches that check my designs against reference models, and bringing them up on real FPGA hardware to see them work.",
   location: "Chicago, IL",
   email: "vrajpat1559@outlook.com",
   links: [
