@@ -6,7 +6,7 @@
 // Dates are "YYYY-MM-DD". Leave `end` as null for ongoing work.
 // status: "in-progress" | "completed" | "planned"
 // progress: { value: 0-100, basis: "one line saying where the number comes from" } — the daily sync
-//           recomputes it from the repo (README checklist / roadmap table / GitHub milestones).
+//           recomputes it from the repo (PROGRESS.md checklist, README roadmap table, or GitHub milestones).
 // =============================================================================
 
 const PROFILE = {
@@ -33,7 +33,7 @@ const PROJECTS = [
     start: "2026-08-21",
     end: null,
     status: "in-progress",            // wrapping up
-    progress: { value: 56, basis: "5 of 9 checklist items done in the repo README" },
+    progress: { value: 56, basis: "5 of 9 checklist items done in PROGRESS.md" },
     featured: true,
     summary:
       "A parameterized 8N1 UART transmitter and receiver written in SystemVerilog, verified with self-checking testbenches and a full-duplex loopback simulation.",
