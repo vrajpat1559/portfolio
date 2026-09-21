@@ -186,6 +186,11 @@
   .status.planned     { color: var(--plan); background: var(--plan-soft); }
   .card-meta { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; flex-wrap: wrap; }
   .card-meta .date { font-family: var(--mono); font-size: 12.5px; color: var(--text-3); letter-spacing: .04em; }
+  .meter { display: inline-flex; align-items: center; gap: 8px; margin-left: auto; }
+  .meter .bar { width: 110px; height: 6px; border-radius: 3px; background: var(--panel-2); border: 1px solid var(--line); overflow: hidden; }
+  .meter .bar i { display: block; height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--teal), var(--blue)); transition: width .6s ease; }
+  .meter .pct { font-family: var(--mono); font-size: 12px; color: var(--text-2); min-width: 34px; text-align: right; }
+  .card.completed-card .meter .bar i { background: var(--ok); }
   .card h3 { font-size: 30px; font-weight: 600; line-height: 1.15; margin-bottom: 14px; }
   .card .summary { color: var(--text-2); font-size: 17px; margin: 0 0 22px; max-width: 58ch; }
   .tech { display: flex; gap: 8px; flex-wrap: wrap; }
@@ -412,7 +417,7 @@
     <article class="card rv" id="p-${esc(p.id)}">
       <div class="num">${iconSvg(p)}${String(i + 1).padStart(2, "0")}</div>
       <div>
-        <div class="card-meta"><span class="status ${esc(p.status)}">${STATUS[p.status] || esc(p.status)}</span><span class="date">${esc(range)}</span></div>
+        <div class="card-meta"><span class="status ${esc(p.status)}">${STATUS[p.status] || esc(p.status)}</span><span class="date">${esc(range)}</span>${p.progress ? `<span class="meter" title="${esc(p.progress.basis || "")}"><span class="bar"><i style="width:${Math.max(0, Math.min(100, +p.progress.value || 0))}%"></i></span><span class="pct">${Math.max(0, Math.min(100, +p.progress.value || 0))}%</span></span>` : ""}</div>
         <h3>${esc(p.title)}</h3>
         <p class="summary">${esc(p.summary)}</p>
         <div class="tech">${(p.tech || []).map(t => `<span>${esc(t)}</span>`).join("")}</div>

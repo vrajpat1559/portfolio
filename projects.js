@@ -5,6 +5,8 @@
 // the array, and fill it in. The page sorts by start date automatically.
 // Dates are "YYYY-MM-DD". Leave `end` as null for ongoing work.
 // status: "in-progress" | "completed" | "planned"
+// progress: { value: 0-100, basis: "one line saying where the number comes from" } — the daily sync
+//           recomputes it from the repo (README checklist / roadmap table / GitHub milestones).
 // =============================================================================
 
 const PROFILE = {
@@ -31,6 +33,7 @@ const PROJECTS = [
     start: "2026-08-21",
     end: null,
     status: "in-progress",            // wrapping up
+    progress: { value: 90, basis: "TX, RX, and loopback testbenches passing; README and final cleanup remaining" },
     featured: true,
     summary:
       "A parameterized 8N1 UART transmitter and receiver written in SystemVerilog, verified with self-checking testbenches and a full-duplex loopback simulation.",
@@ -65,6 +68,7 @@ const PROJECTS = [
     start: "2026-08-30",
     end: null,
     status: "in-progress",
+    progress: { value: 17, basis: "1 of 6 roadmap phases done in the repo README" },
     featured: true,
     summary:
       "Two-person project: a Python simulator that predicts tokens/sec for TPU-style accelerator designs, validated against a weight-stationary systolic array I'm building in SystemVerilog.",
@@ -96,6 +100,7 @@ const PROJECTS = [
     start: "2026-09-15",
     end: null,
     status: "planned",
+    progress: { value: 0, basis: "Not started" },
     featured: true,
     summary:
       "A 5-stage pipelined RV32I processor in SystemVerilog with hazard detection, forwarding, and a self-checking instruction testbench.",
@@ -117,6 +122,7 @@ const PROJECTS = [
     start: "2026-12-15",
     end: null,
     status: "planned",
+    progress: { value: 0, basis: "Not started" },
     featured: true,
     summary:
       "Winter project: a full UVM testbench (agents, scoreboard, coverage) for one of my RTL designs.",

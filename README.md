@@ -22,7 +22,8 @@ Fields per project:
 | `featured`    | full-width card in the grid                                        |
 | `tech`        | feeds Skills and the stats                                         |
 | `tags`        | feeds the filter chips                                             |
-| `milestones`  | `{ date, text }` — dots on the Gantt bar, list in the card, rows in the Activity log |
+| `milestones`  | `{ date, text }` — shown on the card and in the full write-up                     |
+| `progress`    | `{ value, basis }` — 0–100 meter on the card; the daily sync recomputes it from the repo |
 | `links`       | `{ label, url }` — local paths or URLs                             |
 
 Anything containing the word `TODO` renders in purple so placeholders are easy to spot.
